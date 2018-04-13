@@ -1,0 +1,10 @@
+com.meizu.upspushsdklib
+com.meizu.upspushsdklib.handler
+com.meizu.upspushsdklib.handler.impl
+com.meizu.upspushsdklib.hw
+com.meizu.upspushsdklib.network
+com.meizu.upspushsdklib.receiver
+com.meizu.upspushsdklib.receiver.dispatcher
+com.meizu.upspushsdklib.receiver.handler
+com.meizu.upspushsdklib.util
+com.meizu.upspushsdklib.util.reflect

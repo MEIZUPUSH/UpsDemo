@@ -1,0 +1,39 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        jcenter()
+        maven{
+            url 'https://oss.jfrog.org/artifactory/oss-snapshot-local'
+        }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.3'
+        classpath "com.meizu.flyme.internet:publish-plugin:2.1"
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        maven {
+            url 'http://artifactory.rnd.meizu.com/artifactory/all'
+        }
+        jcenter()
+        maven{
+            url 'https://oss.jfrog.org/artifactory/oss-snapshot-local'
+        }
+        maven {
+            url 'http://artifactory.rnd.meizu.com/artifactory/libs-debug-local'
+        }
+        maven {
+            url 'http://developer.huawei.com/repo/'
+        }
+
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

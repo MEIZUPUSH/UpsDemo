@@ -1,0 +1,71 @@
+apply plugin: 'com.android.application'
+
+def mzAppId = project.getProperties().get("MEIZU_APP_ID") ?:""//"111684"
+def mzAppKey = project.getProperties().get("MEIZU_APP_KEY") ?: ""//"a16517ce04d64c3abdfbedb4873edf74"
+def xmAppId = project.getProperties().get("XIAOMI_APP_ID") ?:""//"\\02882303761517631454"
+def xmAppKey = project.getProperties().get("XIAOMI_APP_KEY") ?:""// "\\05581763188454"
+def hwAppId = project.getProperties().get("HUAWEI_APP_ID") ?: "100125059"
+def jiguangAppKey = project.getProperties().get("JIGUANG_APP_KEY") ?: "4e3b021f009359dd5b124d7f" //极光推送demo appkey
+def appPackageName = project.getProperties().get("PACKAGE_NAME")?:"com.meizu.upspushdemo"
+
+println("mzappID = ${mzAppId} mzappKey = ${mzAppKey} xmappID = ${xmAppId} xmappKey = ${xmAppKey} hwappId = ${hwAppId} appPackageName = ${appPackageName}")
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion '26.0.1'
+    defaultConfig {
+        applicationId appPackageName
+        minSdkVersion 15
+        targetSdkVersion 26
+        versionCode 300
+        versionName "3.0.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            //建议只配置x86,armeabi
+            abiFilters 'x86','armeabi'
+            // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
+        }
+
+        manifestPlaceholders = [XIAOMI_APP_ID: xmAppId,
+                                XIAOMI_APP_KEY: xmAppKey,
+                                MEIZU_APP_ID: mzAppId,
+                                MEIZU_APP_KEY: mzAppKey,
+                                HUAWEI_APP_ID: hwAppId,
+                                PACKAGE_NAME: appPackageName,
+                                JPUSH_PKGNAME : appPackageName,
+                                JPUSH_APPKEY : jiguangAppKey, //JPush上注册的包名对应的appkey.
+                                JPUSH_CHANNEL : "developer-default"] //暂时填写默认值即可.
+    }
+
+    signingConfigs {
+        config {
+            keyAlias 'ups-meizu-push'
+            keyPassword '123456'
+            storeFile file('ups-push.jks')
+            storePassword '123456'
+        }
+    }
+
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            signingConfig signingConfigs.config
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+    }
+
+
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    //这里测试直接引用工程源码，你可以如下直接使用jcenter中的aar包
+   compile ('com.meizu.flyme.internet:push-ups:3.0.0')
+
+}

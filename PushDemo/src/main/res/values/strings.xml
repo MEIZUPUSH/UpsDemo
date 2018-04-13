@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">统一推送</string>
+    <string name="choose_channel_tile">选择通道类型</string>
+    <array name="channel">
+        <item>自动选择系统通道</item>
+        <item>使用魅族推送(仅限Flyme系统)</item>
+        <item>使用小米推送</item>
+        <item>使用华为推送(需安装华为移动服务)</item>
+        <item>魅族全平台推送</item>
+    </array>
+</resources>
