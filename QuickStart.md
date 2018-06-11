@@ -22,8 +22,8 @@ repositories {
 }    
 ```
 
-小米的库需要手动将其jar放到工程的lib目录下,小米的pushsdk jar[下载](https://dev.mi.com/mipush/downpage/)
-OPPO的库手动添加到工程的lib目录下,OPPO pushsdk jar[下载](http://cdofs.oppomobile.com/cdo-portal/201803/13/7201d96cd14d559dd22b411422c0fc99.rar)
+* 小米的库需要手动将其jar放到工程的lib目录下,小米的pushsdk jar[下载](https://dev.mi.com/mipush/downpage/)
+* OPPO的库手动添加到工程的lib目录下,OPPO pushsdk jar[下载](http://cdofs.oppomobile.com/cdo-portal/201803/13/7201d96cd14d559dd22b411422c0fc99.rar)
 
 * 在 module 的 gradle 中添加依赖和AndroidManifest的替换变量
 
@@ -37,7 +37,6 @@ android {
         ndk {
            //建议只配置x86,armeabi
            abiFilters 'x86','armeabi'
-           // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
         }
 
        manifestPlaceholders = [XIAOMI_APP_ID: xmAppId, //调试用，可不配置
