@@ -22,7 +22,8 @@ repositories {
 }    
 ```
 
-小米的库需要手动将其jar放到工程的lib目录下，小米的pushsdk jar[下载](https://dev.mi.com/mipush/downpage/)
+小米的库需要手动将其jar放到工程的lib目录下,小米的pushsdk jar[下载](https://dev.mi.com/mipush/downpage/)
+OPPO的库手动添加到工程的lib目录下,OPPO pushsdk jar[下载](http://cdofs.oppomobile.com/cdo-portal/201803/13/7201d96cd14d559dd22b411422c0fc99.rar)
 
 * 在 module 的 gradle 中添加依赖和AndroidManifest的替换变量
 
@@ -44,6 +45,9 @@ android {
                                    MEIZU_APP_ID: mzAppId,//调试用，可不配置
                                    MEIZU_APP_KEY: mzAppKey,//调试用，可不配置
                                    HUAWEI_APP_ID: hwAppId,//调试用，可不配置
+                                   OPPO_APP_ID: oppoAppId,
+                                   OPPO_APP_KEY: oppoAppKey,
+                                   OPPO_APP_SECRET: oppoAppSecret,
                                    PACKAGE_NAME: appPackageName,//必填
         ......
     }

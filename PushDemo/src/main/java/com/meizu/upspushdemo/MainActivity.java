@@ -68,12 +68,8 @@ public class MainActivity extends Activity implements View.OnClickListener{
     public static String xmToken;
 
 
-//    public static String UPS_APP_ID = "1000000";
-//    public static String UPS_APP_KEY = "38caef3fbc1347c1ba8e983226dc2c4f";
-
-    public static String UPS_APP_ID = "1000008";
-    public static String UPS_APP_KEY = "f7c2dbb3b9a248d98fe8c47d0ee15d07";
-
+    public static String UPS_APP_ID = "1000000";
+    public static String UPS_APP_KEY = "38caef3fbc1347c1ba8e983226dc2c4f";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

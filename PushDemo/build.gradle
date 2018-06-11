@@ -67,6 +67,6 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     //这里测试直接引用工程源码，你可以如下直接使用jcenter中的aar包
-   compile ('com.meizu.flyme.internet:push-ups:4.0.0-20180611.035010-1')
+   compile ('com.meizu.flyme.internet:push-ups:4.0.0')
 
 }
