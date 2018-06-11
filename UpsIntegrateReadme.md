@@ -125,13 +125,13 @@
 
 **NOTE:** 目前我们已经根据各个平台提供的策略，重新设计魅族统一推送平台的通知栏消息点击策略，目前有以下五种，对应各个平台的策略如下表：
 
-| 通知栏行为      | 魅族| 小米|华为|说明|
-| :--------: | :--------:| :--: |:--: |:--: |
-| 打开应用      | 支持| 支持|支持|无|
-| 打开应用页面      | 支持| 支持|不支持|魅族只需传递Activity名称,小米需要传递转换后的intentUri|
-| 打开Web页面      | 支持| 支持|支持|只需填写web url地址即可|
-| 打开自定义URI  | 支持| 支持|支持|魅族可通过打开URL功能实现,小米可通过打开应用内页面传递转换的intentURI,华为通过自定义点击行为|
-| 应用客户端自定义  | 支持| 支持|不支持|魅族支持客户端自定义功能，小米可通过不指定notifyEffect实现|
+| 通知栏行为      | 魅族| 小米|华为|OPPO|说明|
+| :--------: | :--------:| :--: |:--: |:--: |:--: |
+| 打开应用      | 支持| 支持|支持|支持|无|
+| 打开应用页面      | 支持| 支持|支持|支持|魅族只需传递Activity名称,小米需要传递转换后的intentUri|
+| 打开Web页面      | 支持| 支持|支持|支持|只需填写web url地址即可|
+| 打开自定义URI  | 支持| 支持|支持|不支持|魅族可通过打开URL功能实现,小米可通过打开应用内页面传递转换的intentURI,华为通过自定义点击行为|
+| 应用客户端自定义  | 支持| 支持|不支持|不支持|魅族支持客户端自定义功能，小米可通过不指定notifyEffect实现|
 
 ### 统一传参方式
 
@@ -155,6 +155,8 @@ intent:#Intent;component=com.meizu.upspushdemo/.TestActivity;S.key=value;end
 * 华为
   * 点击通知：打开应用
   * 后续动作：直接打开应用
+* OPPO
+  * 点击动作：打开应用
   
 ### 3.2 打开应用内页面
 
@@ -180,6 +182,13 @@ intent:#Intent;component=com.meizu.upspushdemo/.TestActivity;S.key=value;end
 ```
  intent:#Intent;component=com.meizu.upspushdemo/.TestActivity;S.key=value;end
 ```  
+
+* 华为
+  * 根据activity名称与参数组装intent,原理同上
+  
+* OPPO
+  * 点击动作：打开应用内页
+  * 页面地址：Activity对应的Intent Action/或者是Activity名称
   
 ### 3.3 打开web页面
 
@@ -192,7 +201,10 @@ intent:#Intent;component=com.meizu.upspushdemo/.TestActivity;S.key=value;end
 * 华为
   * 点击通知：打开网页
   * 输入网址: 标准URI格式如下：`https://www.baidu.com`
-
+* OPPO
+  * 点击动作：打开网页地址
+  * 输入网址: 标准URI格式如下：`https://www.baidu.com`
+  
 ### 3.4 应用客户端自定义
 
 目前仅仅魅族与小米支持

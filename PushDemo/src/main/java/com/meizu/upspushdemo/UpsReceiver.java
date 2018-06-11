@@ -27,7 +27,6 @@ package com.meizu.upspushdemo;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.os.Message;
 import android.text.TextUtils;
 
 import com.meizu.upspushsdklib.CommandType;
@@ -39,7 +38,7 @@ import com.meizu.upspushsdklib.util.UpsLogger;
 import static com.meizu.upspushdemo.UpsDemoApplication.sendMessage;
 
 
-public class UpsReceiver extends UpsPushMessageReceiver{
+public class UpsReceiver extends UpsPushMessageReceiver {
     @Override
     public void onThroughMessage(Context context, UpsPushMessage upsPushMessage) {
          sendMessage("onThroughMessage: "+upsPushMessage.getContent());

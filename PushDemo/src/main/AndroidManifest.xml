@@ -18,24 +18,31 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".TestActivity"
+        <activity android:name="com.meizu.upspushdemo.TestActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
                 <data android:scheme="upspushscheme"
-                       android:host="com.meizu.upspush"
-                       android:path="/notify_detail"/>
+                    android:host="com.meizu.upspush"
+                    android:path="/notify_detail"/>
             </intent-filter>
         </activity>
 
 
+        <activity android:name="com.meizu.upspushdemo.OPPOActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.oppo.push.open.action"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
 
         <!-- 统一推送配置 -->
         <receiver android:name="com.meizu.upspushdemo.UpsReceiver">
             <intent-filter>
-            <!-- 接收push消息 -->
-            <action android:name="com.meizu.ups.push.intent.MESSAGE" />
+                <!-- 接收push消息 -->
+                <action android:name="com.meizu.ups.push.intent.MESSAGE" />
             </intent-filter>
         </receiver>
 

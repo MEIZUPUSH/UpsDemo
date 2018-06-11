@@ -5,7 +5,9 @@ def mzAppKey = project.getProperties().get("MEIZU_APP_KEY") ?: ""//"a16517ce04d6
 def xmAppId = project.getProperties().get("XIAOMI_APP_ID") ?:""//"\\02882303761517631454"
 def xmAppKey = project.getProperties().get("XIAOMI_APP_KEY") ?:""// "\\05581763188454"
 def hwAppId = project.getProperties().get("HUAWEI_APP_ID") ?: "100125059"
-def jiguangAppKey = project.getProperties().get("JIGUANG_APP_KEY") ?: "4e3b021f009359dd5b124d7f" //极光推送demo appkey
+def oppoAppId = project.getProperties().get("OPPO_APP_ID") ?: ""
+def oppoAppKey = project.getProperties().get("OPPO_APP_KEY") ?: ""
+def oppoAppSecret = project.getProperties().get("OPPO_APP_SECRET") ?: ""
 def appPackageName = project.getProperties().get("PACKAGE_NAME")?:"com.meizu.upspushdemo"
 
 println("mzappID = ${mzAppId} mzappKey = ${mzAppKey} xmappID = ${xmAppId} xmappKey = ${xmAppKey} hwappId = ${hwAppId} appPackageName = ${appPackageName}")
@@ -17,14 +19,13 @@ android {
         applicationId appPackageName
         minSdkVersion 15
         targetSdkVersion 26
-        versionCode 301
-        versionName "3.0.1"
+        versionCode 400
+        versionName "4.0.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         ndk {
             //建议只配置x86,armeabi
             abiFilters 'x86','armeabi'
-            // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
         }
 
         manifestPlaceholders = [XIAOMI_APP_ID: xmAppId,
@@ -32,10 +33,10 @@ android {
                                 MEIZU_APP_ID: mzAppId,
                                 MEIZU_APP_KEY: mzAppKey,
                                 HUAWEI_APP_ID: hwAppId,
-                                PACKAGE_NAME: appPackageName,
-                                JPUSH_PKGNAME : appPackageName,
-                                JPUSH_APPKEY : jiguangAppKey, //JPush上注册的包名对应的appkey.
-                                JPUSH_CHANNEL : "developer-default"] //暂时填写默认值即可.
+                                OPPO_APP_ID: oppoAppId,
+                                OPPO_APP_KEY: oppoAppKey,
+                                OPPO_APP_SECRET: oppoAppSecret,
+                                PACKAGE_NAME: appPackageName]
     }
 
     signingConfigs {
@@ -66,6 +67,6 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     //这里测试直接引用工程源码，你可以如下直接使用jcenter中的aar包
-   compile ('com.meizu.flyme.internet:push-ups:3.0.1')
+   compile ('com.meizu.flyme.internet:push-ups:4.0.0-20180611.035010-1')
 
 }

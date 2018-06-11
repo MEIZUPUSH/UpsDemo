@@ -40,6 +40,7 @@ import com.meizu.upspushsdklib.UpsPushManager;
 import com.meizu.upspushsdklib.util.UpsConstants;
 import com.meizu.upspushsdklib.util.UpsLogger;
 import com.meizu.upspushsdklib.util.UpsUtils;
+
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -67,8 +68,12 @@ public class MainActivity extends Activity implements View.OnClickListener{
     public static String xmToken;
 
 
-    public static String UPS_APP_ID = "1000000";
-    public static String UPS_APP_KEY = "38caef3fbc1347c1ba8e983226dc2c4f";
+//    public static String UPS_APP_ID = "1000000";
+//    public static String UPS_APP_KEY = "38caef3fbc1347c1ba8e983226dc2c4f";
+
+    public static String UPS_APP_ID = "1000008";
+    public static String UPS_APP_KEY = "f7c2dbb3b9a248d98fe8c47d0ee15d07";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,7 +82,8 @@ public class MainActivity extends Activity implements View.OnClickListener{
         setContentView(R.layout.activity_main);
         initView();
         initMetaData();
-
+        Intent intent = getIntent();
+        UpsLogger.e(this,"inent "+intent.getStringExtra("oppo"));
     }
 
     private void initView(){
@@ -102,9 +108,9 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
     private void initMetaData(){
         xmAppId = UpsUtils.getMetaStringValueByName(this, UpsConstants.XIAOMI_APP_ID);
-        xmAppKey = UpsUtils.getMetaStringValueByName(this,UpsConstants.XIAOMI_APP_KEY);
+        xmAppKey = UpsUtils.getMetaStringValueByName(this, UpsConstants.XIAOMI_APP_KEY);
         mzAppId = UpsUtils.getMetaIntValueByName(this, UpsConstants.MEIZU_APP_ID);
-        mzAppKey = UpsUtils.getMetaStringValueByName(this,UpsConstants.MEIZU_APP_KEY);
+        mzAppKey = UpsUtils.getMetaStringValueByName(this, UpsConstants.MEIZU_APP_KEY);
         UpsUtils.getMetaIntValueByName(this,"com.huawei.hms.client.appid");
     }
 
@@ -212,7 +218,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
                                 break;
                         }
 
-                        UpsLogger.e(this,"channel which "+which+" company "+Company.fromValue(which));
+                        UpsLogger.e(this,"channel which "+which+" company "+ Company.fromValue(which));
                         UpsDemoApplication.sendMessage("使用 "+ channelName+" 推送通道");
                     }
                 });

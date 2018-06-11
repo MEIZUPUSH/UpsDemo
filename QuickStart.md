@@ -45,10 +45,6 @@ android {
                                    MEIZU_APP_KEY: mzAppKey,//调试用，可不配置
                                    HUAWEI_APP_ID: hwAppId,//调试用，可不配置
                                    PACKAGE_NAME: appPackageName,//必填
-                                   JPUSH_PKGNAME : appPackageName,//必填
-                                   //极光的配置必填
-                                   JPUSH_APPKEY : jiguangAppKey, //JPush上注册的包名对应的appkey.
-                                   JPUSH_CHANNEL : "developer-default"] //暂时填写默认值即可.
         ......
     }
     ......
@@ -57,7 +53,7 @@ android {
 dependencies {
     ......
 
-    compile 'com.meizu.flyme.internet:push-ups:3.0.0' //配置集成sdk
+    compile 'com.meizu.flyme.internet:push-ups:4.0.0' //配置集成sdk
     ......
 }
 
