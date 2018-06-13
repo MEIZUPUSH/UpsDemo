@@ -1,10 +1,16 @@
 本文档旨在说明如果快速的接入集成推送SDK,快速实现小米,华为,魅族的推送接入，有关详细的设计文档参考`集成推送设计说明文档`
 
-## 中央仓库自动集成
+## 依赖库配置
+
+### 中央仓库自动集成
+
 * 配置中央仓库
+
+**NOTE:** 这里配置中央仓库主要下载魅族推送相关sdk,以及华为的推送sdk
+
 ```
 repositories {
-        //魅族,极光仓库地址
+        //魅族PushSDK仓库地址
         jcenter()
         // 华为的库的仓库地址
         maven {
@@ -16,9 +22,13 @@ repositories {
 ```
 
 ## 本地包导入
-**NOTE:** 由于小米,OPPO不支持远程仓库依赖，所以需要将小米,OPPO的推送哦给jar手动导入到应用的lib目录下,否则可能出现无法在oppo等机型订阅等问题
+
+**NOTE:** 由于小米,OPPO不支持远程仓库依赖，所以需要将小米,OPPO的推送的PushSDK Jar手动导入到应用的lib目录下,否则可能出现无法在OPPO等机型订阅等问题
+
 * `小米`的库需要手动将其jar放到工程的lib目录下,小米的`pushsdk jar`[下载](https://dev.mi.com/mipush/downpage/)
 * `OPPO`的库手动添加到工程的lib目录下,`OPPO PUSHSDK jar`[下载](http://cdofs.oppomobile.com/cdo-portal/201803/13/7201d96cd14d559dd22b411422c0fc99.rar)
+
+## build.gradle 相关配置
 
 * 在 module 的 gradle 中添加依赖和AndroidManifest的替换变量
 
@@ -30,7 +40,7 @@ android {
         ......
 
         ndk {
-           //建议只配置x86,armeabi
+           //目前支持配置x86,armeabi
            abiFilters 'x86','armeabi'
         }
 
@@ -38,10 +48,10 @@ android {
                                    XIAOMI_APP_KEY: xmAppKey,//调试用，可不配置
                                    MEIZU_APP_ID: mzAppId,//调试用，可不配置
                                    MEIZU_APP_KEY: mzAppKey,//调试用，可不配置
-                                   HUAWEI_APP_ID: hwAppId,//调试用，可不配置
-                                   OPPO_APP_ID: oppoAppId,
-                                   OPPO_APP_KEY: oppoAppKey,
-                                   OPPO_APP_SECRET: oppoAppSecret,
+                                   HUAWEI_APP_ID: hwAppId,//必填
+                                   OPPO_APP_ID: oppoAppId,//调试用，可不配置
+                                   OPPO_APP_KEY: oppoAppKey,//调试用，可不配置
+                                   OPPO_APP_SECRET: oppoAppSecret,//调试用，可不配置
                                    PACKAGE_NAME: appPackageName,//必填
         ......
     }
