@@ -15,8 +15,10 @@ repositories {
 }    
 ```
 
-* 小米的库需要手动将其jar放到工程的lib目录下,小米的pushsdk jar[下载](https://dev.mi.com/mipush/downpage/)
-* OPPO的库手动添加到工程的lib目录下,OPPO pushsdk jar[下载](http://cdofs.oppomobile.com/cdo-portal/201803/13/7201d96cd14d559dd22b411422c0fc99.rar)
+## 本地包导入
+**NOTE:** 由于小米,OPPO不支持远程仓库依赖，所以需要将小米,OPPO的推送哦给jar手动导入到应用的lib目录下,否则可能出现无法在oppo等机型订阅等问题
+* `小米`的库需要手动将其jar放到工程的lib目录下,小米的`pushsdk jar`[下载](https://dev.mi.com/mipush/downpage/)
+* `OPPO`的库手动添加到工程的lib目录下,`OPPO PUSHSDK jar`[下载](http://cdofs.oppomobile.com/cdo-portal/201803/13/7201d96cd14d559dd22b411422c0fc99.rar)
 
 * 在 module 的 gradle 中添加依赖和AndroidManifest的替换变量
 
