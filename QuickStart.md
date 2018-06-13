@@ -44,15 +44,16 @@ android {
            abiFilters 'x86','armeabi'
         }
 
-       manifestPlaceholders = [XIAOMI_APP_ID: xmAppId, //调试用，可不配置
-                                   XIAOMI_APP_KEY: xmAppKey,//调试用，可不配置
-                                   MEIZU_APP_ID: mzAppId,//调试用，可不配置
-                                   MEIZU_APP_KEY: mzAppKey,//调试用，可不配置
-                                   HUAWEI_APP_ID: hwAppId,//必填
-                                   OPPO_APP_ID: oppoAppId,//调试用，可不配置
-                                   OPPO_APP_KEY: oppoAppKey,//调试用，可不配置
-                                   OPPO_APP_SECRET: oppoAppSecret,//调试用，可不配置
+       manifestPlaceholders = [    XIAOMI_APP_ID: "", //如需本地调试，请替换真实信息,否则填空,不要随意填写
+                                   XIAOMI_APP_KEY: "",//如需本地调试，请替换真实信息,否则填空,不要随意填
+                                   MEIZU_APP_ID: "",//如需本地调试，请替换真实信息,否则填空,不要随意填
+                                   MEIZU_APP_KEY: "",//如需本地调试，请替换真实信息,否则填空,不要随意填
+                                   HUAWEI_APP_ID: "",//必填
+                                   OPPO_APP_ID: "",//如需本地调试，请替换真实信息,否则填空,不要随意填
+                                   OPPO_APP_KEY: "",//如需本地调试，请替换真实信息,否则填空,不要随意填
+                                   OPPO_APP_SECRET: "",//如需本地调试，请替换真实信息,否则填空,不要随意填
                                    PACKAGE_NAME: appPackageName,//必填
+                              ]    
         ......
     }
     ......
